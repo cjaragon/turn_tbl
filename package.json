@@ -2,6 +2,8 @@
   "name": "turn-tble",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:4040",
+  "main": "./server/index",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.5",
@@ -10,6 +12,7 @@
     "bcryptjs": "^2.4.3",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "express-session": "^1.17.1",
     "express-sessions": "^1.0.6",
     "massive": "^6.6.5",
     "react": "^17.0.1",
