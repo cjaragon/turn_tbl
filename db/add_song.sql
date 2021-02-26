@@ -3,6 +3,5 @@ INSERT INTO song
 VALUES 
 ($1, $2);
 
-SELECT * FROM song s
-JOIN album a 
-ON s.album_id = a.id
+SELECT * FROM song 
+WHERE album_id = $2
