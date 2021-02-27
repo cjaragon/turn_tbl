@@ -22,9 +22,10 @@ massive({
 
 app.use(
     session({
-        resave: true,
-        saveUninitialized: false,
-        secret: SESSION_SECRET
+        resave: false,
+        saveUninitialized: true,
+        secret: SESSION_SECRET,
+        cookie: {maxAge: 1000*60*60*24*7}
     })
 )
 
@@ -32,10 +33,10 @@ app.post('/auth/register', authCtrl.register)
 app.post('/auth/login', authCtrl.login)
 app.get('/auth/logout', authCtrl.logout)
 
-app.post('user/albums/add', auth.usersOnly, albumCtrl.addAlbum)
+app.post('/user/albums/add', auth.usersOnly, albumCtrl.addAlbum)
 app.get('/user/albums', auth.usersOnly, albumCtrl.getUserAlbums)
 app.delete('/user/albums/:id', auth.usersOnly, albumCtrl.deleteAlbum)
-app.put('/user/albums/:id', auth.usersOnly, albumCtrl.albumHeard)
+app.put('/user/albums/:albumId', auth.usersOnly, albumCtrl.albumHeard)
 
 app.post('/album/songs/add', auth.usersOnly, songCtrl.addSong)
 app.get('/album/songs', auth.usersOnly, songCtrl.getSongs)

@@ -25,11 +25,12 @@ module.exports = {
         if (!user) {
             return res.status(401).send('User  not found. Please register as a new user before logging in.')
         }
-        const isAuthenticated = bcrypt.compareSync(password, user.hash)
+        const isAuthenticated = bcrypt.compareSync(password, user.password)
         if (!isAuthenticated) {
             return res.status(403).send('Incorrect Password')
         }
         req.session.user = {username: user.username, id: user.user_id}
+        console.log(req.session.user)
         return res.send(req.session.user)
     },
 
