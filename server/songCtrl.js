@@ -8,7 +8,7 @@ module.exports = {
 
     getSongs: async (req, res) => {
         const db = req.app.get('db')
-        const {albumId} = req.body
+        const {albumId} = req.params
         const songs = await db.get_songs([albumId])
         return res.status(200).send(songs)
     }
