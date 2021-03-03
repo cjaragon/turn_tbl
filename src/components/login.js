@@ -12,7 +12,6 @@ const Login = (props) => {
         e.preventDefault()
         try {
             const user = await axios.post('/auth/login', {email, password})
-            console.log(user)
             setUser(user.data)
             props.history.push('/albums')
         } 
