@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import {setAlbumList} from '../ducks/albumReducer'
+import Album from './album'
 import {connect} from 'react-redux'
 import axios from 'axios'
 
@@ -10,25 +11,34 @@ const AlbumList = (props) => {
     const [imgUrl, setImgUrl] = useState('')
 
     useEffect(() => {
-        axios.get('/user/albums')
-        .then (res => setAlbumList(res.data))
-    })
+       props.setAlbumList()
+    }, [])
 
     const addAlbum = async (e) => {
         e.preventDefault()
         try {
             const album = await axios.post('/user/albums/add', {title, artist, genre, imgUrl})
+            console.log(album.data)
             setAlbumList(album.data)
         }
         catch {
             alert('Failed To Add Album')
         }
+        setTitle('')
+        setArtist('')
+        setGenre('')
+        setImgUrl('')
     }
 
+    const list = props.albumList.map(album => {
+        const {id, title, artist, genre, img_url, heard} = album
+        return <Album key={id} title={title} artist={artist} genre={genre} cover={img_url} id={id} heard={heard} />
+    }) 
+   
     return (
         <div>
             <p>Album List</p>
-
+            {list}
             <form>
                 <h1>New Album</h1>
                 <h3> Album Title: </h3>
@@ -53,6 +63,6 @@ const AlbumList = (props) => {
     )
 }
 
-const mapStateToProps = state => state
+const mapStateToProps = state => state.albumList
 
 export default connect(mapStateToProps, {setAlbumList})(AlbumList)

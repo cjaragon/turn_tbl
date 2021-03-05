@@ -14,7 +14,7 @@ export function setAlbumSongs (albumSongs) {
 export default function songReducer (state = initialState, action) {
     switch(action.type) {
         case SET_ALBUM_SONGS:
-            return {...state, albumSongs: action.payload}
+            return {...state, albumSongs: [...state.albumSongs, action.payload]}
         default:
             return state
     }

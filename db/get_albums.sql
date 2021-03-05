@@ -1,4 +1,4 @@
-SELECT (id, title, artist, genre, img_url, heard  )
+SELECT *
 FROM album a
 JOIN user_album ua 
 ON a.id = ua.album_id

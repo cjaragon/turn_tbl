@@ -13,9 +13,8 @@ module.exports = {
     getUserAlbums: async (req, res) => {
         const db = req.app.get('db')
         const {id} = req.session.user
-        const {albumId} = req.params
-        const userAlbums = await db.get_albums([id, albumId])
-        return res.status(200).send(userAlbums)
+        const userAlbums = await db.get_albums([id])
+        res.status(200).send(userAlbums)
     },
 
     deleteAlbum: async (req, res) => {
