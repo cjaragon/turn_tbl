@@ -7,7 +7,7 @@ import AlbumSongs from './components/albumSongs'
 export default (
     <Switch>
         <Route exact path='/' component={Login} />
-        <Route path='/albums' component={AlbumList} />
-        <Route path='/albums/:title' component={AlbumSongs} />
+        <Route exact path='/albums' component={AlbumList} />
+        <Route path='/albums/:id' component={AlbumSongs} />
     </Switch>
 )

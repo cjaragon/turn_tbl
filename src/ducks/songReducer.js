@@ -1,10 +1,13 @@
+import axios from 'axios'
+
 const initialState = {
     albumSongs: []
 }
 
 const SET_ALBUM_SONGS = "SET_ALBUM_SONGS"
 
-export function setAlbumSongs (albumSongs) {
+export function setAlbumSongs (id) {
+    const albumSongs = axios.get(`user/albums/${id}`)
     return {
         type: SET_ALBUM_SONGS, 
         payload: albumSongs
@@ -13,8 +16,10 @@ export function setAlbumSongs (albumSongs) {
 
 export default function songReducer (state = initialState, action) {
     switch(action.type) {
-        case SET_ALBUM_SONGS:
-            return {...state, albumSongs: [...state.albumSongs, action.payload]}
+        case SET_ALBUM_SONGS + '_FULFILLED':
+            return {...state, albumSongs: [...action.payload]}
+        case SET_ALBUM_LIST + '_PENDING':
+            return state
         default:
             return state
     }

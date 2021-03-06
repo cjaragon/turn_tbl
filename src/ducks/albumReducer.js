@@ -17,7 +17,7 @@ export function setAlbumList() {
 export default function albumReducer (state = initialState, action) {
     switch(action.type) {
         case SET_ALBUM_LIST + '_FULFILLED':
-            return {...state, albumList: [...state.albumList, ...action.payload ]}
+            return {...state, albumList: [...action.payload ]}
         case SET_ALBUM_LIST + '_PENDING':
             return state
         default:

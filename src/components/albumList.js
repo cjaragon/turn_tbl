@@ -19,7 +19,7 @@ const AlbumList = (props) => {
         try {
             const album = await axios.post('/user/albums/add', {title, artist, genre, imgUrl})
             console.log(album.data)
-            setAlbumList(album.data)
+            props.setAlbumList()
         }
         catch {
             alert('Failed To Add Album')
@@ -32,7 +32,7 @@ const AlbumList = (props) => {
 
     const list = props.albumList.map(album => {
         const {id, title, artist, genre, img_url, heard} = album
-        return <Album key={id} title={title} artist={artist} genre={genre} cover={img_url} id={id} heard={heard} />
+        return <Album key={id} title={title} artist={artist} genre={genre} cover={img_url} id={id} heard={heard} push={props.history.push} />
     }) 
    
     return (
