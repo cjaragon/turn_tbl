@@ -18,7 +18,6 @@ const AlbumList = (props) => {
         e.preventDefault()
         try {
             const album = await axios.post('/user/albums/add', {title, artist, genre, imgUrl})
-            console.log(album.data)
             props.setAlbumList()
         }
         catch {
