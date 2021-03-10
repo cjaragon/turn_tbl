@@ -36,7 +36,7 @@ const AlbumList = (props) => {
    
     return (
         <div>
-            <p>Album List</p>
+            <h1>{props.user.username}'s Album List</h1>
             {list}
             <form>
                 <h1>New Album</h1>
@@ -62,6 +62,12 @@ const AlbumList = (props) => {
     )
 }
 
-const mapStateToProps = state => state.albumList
+const mapStateToProps = state => {
+    const {user, albumList} = state
+    return {
+        albumList: albumList.albumList,
+        user: user.user
+    }
+}
 
 export default connect(mapStateToProps, {setAlbumList})(AlbumList)
