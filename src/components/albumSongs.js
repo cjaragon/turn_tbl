@@ -42,12 +42,14 @@ const AlbumSongs = (props) => {
                     <div className='view3'>
                         <section className='album'>
                             <img src={album[0].img_url} alt={`${album[0].title} album cover`} className='cover-art' />
-                            <p className='info'><b>Title: </b>{album[0].title}</p>
-                            <p className='info'><b>Artist: </b>{album[0].artist}</p>
-                            <p className='info'><b>Genre: </b>{album[0].genre}</p>
+                            <div className='album-info'>
+                                <p className='info'><b>Title: </b>{album[0].title}</p>
+                                <p className='info'><b>Artist: </b>{album[0].artist}</p>
+                                <p className='info'><b>Genre: </b>{album[0].genre}</p>
+                            </div>
                         </section>
                         <section>
-                            <form>
+                            <form className='song'>
                                 <input placeholder='Song Title'
                                     onChange={e => setSong(e.target.value)}
                                     value={song} />

@@ -6,7 +6,7 @@ import {withRouter} from 'react-router-dom'
 
 const Album = (props) => {
 
-    const {title,artist,genre, cover, id } = props
+    const {title,artist,genre, cover, id, heard } = props
 
     const handleHeard = async (id) => {
         try {
@@ -33,7 +33,7 @@ const Album = (props) => {
 
 
     return (
-        <div className='album'>
+        <div className={heard ? 'album heard' : 'album'}>
             <img src={cover} alt={`${title} cover`} className='cover-art'/>
             <section className='album-info' >
                 <p><b>Title: </b>{title}</p>

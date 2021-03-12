@@ -50,7 +50,7 @@ const NewAlbum = (props) => {
                 onChange={e => setImgUrl(e.target.value)}
                 value={imgUrl} />
             <button onClick={addAlbum} > Add Album </button>
-            <button onClick={noAdd} > Close </button>
+            <button onClick={noAdd} className='close' > Close </button>
         </form>
     )
 }
