@@ -37,8 +37,8 @@ const Login = (props) => {
         <div className='view1'>
             <section className='login'>
                 <h3>Welcome to Turn-TBL!</h3>
+                <h5>Log in or register to get started on making your personal list of albums that you are interested in.</h5>
                 <form>
-
                     <input className='input'
                         placeholder='email'
                         onChange={e => setEmail(e.target.value)}

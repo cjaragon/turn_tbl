@@ -2,10 +2,11 @@ import React from 'react'
 import {connect} from 'react-redux'
 import axios from 'axios'
 import {setAlbumList} from '../ducks/albumReducer'
+import {withRouter} from 'react-router-dom'
 
 const Album = (props) => {
 
-    const {title,artist,genre, cover, id, heard, push} = props
+    const {title,artist,genre, cover, id } = props
 
     const handleHeard = async (id) => {
         try {
@@ -38,15 +39,17 @@ const Album = (props) => {
                 <p><b>Title: </b>{title}</p>
                 <p><b>Artist: </b>{artist}</p>
                 <p><b>Genre: </b>{genre}</p>
-                <p>{`${heard}`}</p>
             </section>
             <section className='buttons'>
-                <button onClick={() => push(`/albums/${id}`)} > View </button>
-                <button onClick={() => handleHeard(id)} > Heard </button>
-                <button onClick={() => deleteAlbum(id) } > Delete </button>
+                <button className='album-button'
+                    onClick={() => props.history.push(`/albums/${id}`)} > View </button>
+                <button className='album-button'
+                    onClick={() => handleHeard(id)} > Heard </button>
+                <button className='album-button'
+                    onClick={() => deleteAlbum(id) } > Delete </button>
             </section>
         </div>
     )
 }
 
-export default connect(null, {setAlbumList})(Album)
+export default withRouter (connect(null, {setAlbumList})(Album))
