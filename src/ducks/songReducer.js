@@ -7,7 +7,7 @@ const initialState = {
 const SET_ALBUM_SONGS = "SET_ALBUM_SONGS"
 
 export function setAlbumSongs (id) {
-    const albumSongs = axios.get(`album/songs/${id}`)
+    const albumSongs = axios.get(`/album/songs/${id}`)
     .then (res => res.data)
     return {
         type: SET_ALBUM_SONGS, 
