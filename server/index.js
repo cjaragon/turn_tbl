@@ -6,6 +6,7 @@ const authCtrl = require('./authCtrl')
 const albumCtrl = require('./albumCtrl')
 const auth = require('./middleware/authMiddleware')
 const songCtrl = require('./songCtrl')
+const path = require('path')
 
 const app = express()
 const {SESSION_SECRET, CONNECTION_STRING, SERVER_PORT} = process.env
@@ -44,5 +45,12 @@ app.put('/user/albums/:albumId', auth.usersOnly, albumCtrl.albumHeard)
 // Songs
 app.post('/album/songs/add', auth.usersOnly, songCtrl.addSong)
 app.get('/album/songs/:albumId', auth.usersOnly, songCtrl.getSongs)
+
+//hosting
+app.use(express.static(`${__dirname}/../build`))
+
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../build/index.html'))
+})
 
 app.listen(SERVER_PORT, () => console.log(`Listening to port ${SERVER_PORT}`))
