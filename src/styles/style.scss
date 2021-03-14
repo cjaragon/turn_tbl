@@ -166,7 +166,8 @@ body {
         }
 
         div {
-            overflow-y: scroll;
+            overflow-y: auto;
+            
             height: 80%;
         }
         
@@ -177,7 +178,6 @@ body {
             box-shadow: 0 0 5px 2px #905a97;
             display: flex;
             justify-content: space-around;
-            overflow: hidden;
             align-items: center;
             background-color: $cream;
 
@@ -398,11 +398,12 @@ body {
 
     .view2 {
         width: 100vw;
-        height: 100vh;
+        height:85vh;
         flex-direction: row;
 
         .album-list{
             width: 70%;
+            height: 100%;
 
             h1{
                 margin: 10px 0px;
@@ -420,47 +421,48 @@ body {
                 display: flex;
                 flex-direction: column;
                 align-items: center;
+                overflow-y: auto;
                 box-shadow: 0 0 5px 3px #905a97;
+            }
             
-                
-                .album {
-                    margin-top: 15px;
-                    flex-direction: row;
-                    align-items: center;
-                    width: 80%;
-                    height: auto;
-
-                    .cover-art {
-                        margin: 10px 0;
-                        width: 150px;
-                        height: 150px;
-                    };
-
-                    .album-info {
-                        height: 80%;
-                        display: flex;
-                        flex-direction: column;
-                        justify-content: space-around;
-                        font-size: 20px;
-                    }
-
-                    .buttons {
-                        height: 100%;
-                        display: flex;
-                        flex-direction: column;
-                        justify-content: space-around;
-                        .album-button {
-                            margin: 10px 0px;
-                        }
+            .album {
+                flex-shrink: 0;
+                overflow: none;
+                margin-top: 15px;
+                flex-direction: row;
+                align-items: center;
+                width: 80%;
+                height: 175px;
+                .cover-art {
+                    margin: 10px 0;
+                    width: 150px;
+                    height: 150px;
+                };
+                .album-info {
+                    height: 80%;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-around;
+                    font-size: 20px;
+                }
+                .buttons {
+                    height: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-around;
+                    .album-button {
+                        margin: 10px 0px;
                     }
                 }
             }
-        };
+        
+        }
 
         form{
 
             right: 0;
             width: 30%;
+            height: 100%;
             transform: none;
             .close{
                 display: none;
@@ -468,6 +470,7 @@ body {
         }
     };
     .view3 {
+        height: 85vh;
         .album {
             width: 50%;
             flex-direction: row;
@@ -496,6 +499,7 @@ body {
 
         }
         .list {
+            height: 35%;
             width: 50%;
             font-size: 20px;
         }

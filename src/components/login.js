@@ -49,7 +49,7 @@ const Login = (props) => {
                         type='password'
                         value={password} />
                     <button class='login-button'
-                        onClick={login}> Log In </button>
+                        onClick={ !email || !password ? null : login}> Log In </button>
                     <input className='input'
                         placeholder='Username'
                         onChange={e => setUsername(e.target.value)}
