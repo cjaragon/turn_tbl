@@ -61,7 +61,7 @@ const Login = (props) => {
                         type='password'
                         value={password} />
                     <button class='login-button'
-                        onClick={ !email || !password ? null : login}> Log In </button>
+                        onClick={ !email || !password ? () => alert('Email and Password Required') : login}> Log In </button>
                     {
                         !newUser
                         ?
