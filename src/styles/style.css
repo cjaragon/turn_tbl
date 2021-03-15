@@ -319,7 +319,144 @@ body button {
   font-weight: lighter;
 }
 
-@media (min-width: 700px) {
+@media (min-width: 500px) {
+  .header {
+    height: 10vh;
+  }
+  .header h1 {
+    font-size: 100px;
+    margin: 0% 10%;
+  }
+  .header .log-out {
+    padding: 8px;
+    height: 75px;
+    width: auto;
+    font-size: 25px;
+  }
+
+  .view1 .login {
+    margin-top: 5%;
+    width: 60%;
+  }
+  .view1 .login h3 {
+    font-size: 40px;
+  }
+  .view1 .login h5 {
+    font-size: 30px;
+  }
+  .view1 .login form input {
+    margin-bottom: 15px;
+    font-size: 25px;
+  }
+  .view1 .login form input:focus {
+    font-size: 25px;
+  }
+  .view1 .login form button {
+    font-size: 25px;
+    margin-bottom: 15px;
+  }
+
+  .view2 {
+    width: 100vw;
+    height: 85vh;
+    flex-direction: row;
+  }
+  .view2 .album-list {
+    width: 70%;
+    height: 100%;
+  }
+  .view2 .album-list h1 {
+    margin: 10px 0px;
+  }
+  .view2 .album-list .open {
+    display: none;
+  }
+  .view2 .album-list div {
+    background-color: #6cb3bd;
+    margin: 0 auto;
+    width: 90%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: auto;
+    box-shadow: 0 0 5px 3px #905a97;
+  }
+  .view2 .album-list .album {
+    flex-shrink: 0;
+    overflow: none;
+    margin-top: 15px;
+    flex-direction: row;
+    align-items: center;
+    width: 80%;
+    height: 175px;
+  }
+  .view2 .album-list .album .cover-art {
+    margin: 10px 0;
+    width: 150px;
+    height: 150px;
+  }
+  .view2 .album-list .album .album-info {
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    font-size: 20px;
+  }
+  .view2 .album-list .album .buttons {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+  .view2 .album-list .album .buttons .album-button {
+    margin: 10px 0px;
+  }
+  .view2 form {
+    right: 0;
+    width: 30%;
+    height: 100%;
+    transform: none;
+  }
+  .view2 form .close {
+    display: none;
+  }
+  .view2 form button {
+    width: 40%;
+  }
+
+  .view3 .album {
+    height: 40%;
+  }
+  .view3 .album .cover-art {
+    width: 300px;
+    height: 300px;
+  }
+  .view3 .album .album-info {
+    justify-content: space-around;
+    font-size: 30px;
+  }
+  .view3 .song {
+    width: 50%;
+    height: auto;
+  }
+  .view3 .song input {
+    height: 80%;
+    font-size: 20px;
+  }
+  .view3 .song button {
+    height: 100%;
+    padding: 8px;
+    font-size: 20px;
+    text-align: center;
+  }
+  .view3 .list {
+    height: 35%;
+    width: 50%;
+    font-size: 30px;
+  }
+}
+@media (min-width: 1200px) {
   .header {
     height: 15vh;
     align-items: center;
@@ -425,6 +562,7 @@ body button {
   }
   .view3 .album {
     width: 50%;
+    height: 50%;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;

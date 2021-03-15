@@ -358,7 +358,165 @@ body {
     }
 }   
 
-@media (min-width: 700px) {
+@media (min-width: 500px) {
+    .header {
+        height: 10vh;
+        h1 {
+            font-size: 100px;
+            margin: 0% 10%;
+        };
+
+        .log-out {
+            padding: 8px;
+            height: 75px;
+            width: auto;
+            font-size: 25px;
+        }
+    };
+
+    .view1 {
+        .login{
+            margin-top: 5%;
+            width: 60%;
+
+            h3 {
+                font-size: 40px;
+            };
+            h5 {
+                font-size: 30px;
+            };
+            form {
+                input {
+                    margin-bottom: 15px;
+                    font-size: 25px
+                };
+                input:focus {
+                    font-size: 25px;
+                }
+                button {
+                    font-size: 25px;
+                    margin-bottom: 15px;
+                };
+            };
+        };
+    }; 
+
+    .view2 {
+        width: 100vw;
+        height:85vh;
+        flex-direction: row;
+
+        .album-list{
+            width: 70%;
+            height: 100%;
+
+            h1{
+                margin: 10px 0px;
+            }
+
+            .open {
+                display: none;
+            }
+
+            div {
+                background-color: #6cb3bd;
+                margin: 0 auto;
+                width: 90%;
+                height: 90%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                overflow-y: auto;
+                box-shadow: 0 0 5px 3px #905a97;
+            }
+            
+            .album {
+                flex-shrink: 0;
+                overflow: none;
+                margin-top: 15px;
+                flex-direction: row;
+                align-items: center;
+                width: 80%;
+                height: 175px;
+                .cover-art {
+                    margin: 10px 0;
+                    width: 150px;
+                    height: 150px;
+                };
+                .album-info {
+                    height: 80%;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-around;
+                    font-size: 20px;
+                }
+                .buttons {
+                    height: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-around;
+                    .album-button {
+                        margin: 10px 0px;
+                    }
+                }
+            }
+        
+        }
+
+        form{
+
+            right: 0;
+            width: 30%;
+            height: 100%;
+            transform: none;
+            .close{
+                display: none;
+            }
+
+            button {
+                width: 40%;
+            }
+        }
+    };
+
+    .view3 {
+        .album {
+            height: 40%;
+            .cover-art {
+                width: 300px;
+                height: 300px;
+            };
+            .album-info {
+                justify-content: space-around;
+                font-size: 30px;
+            };
+        }
+        .song {
+            width: 50%;
+            height: auto;
+        
+            input {
+                height: 80%;
+                font-size: 20px;
+            }
+            
+            button {
+                height: 100%; 
+                padding: 8px;
+                font-size: 20px;
+                text-align: center;
+            }
+
+        }
+        .list {
+            height: 35%;
+            width: 50%;
+            font-size: 30px;
+        }
+    }
+}
+
+@media (min-width: 1200px) {
     .header {
         height: 15vh;
         align-items: center;
@@ -476,6 +634,7 @@ body {
         height: 85vh;
         .album {
             width: 50%;
+            height: 50%;
             flex-direction: row;
             justify-content: space-around;
             align-items: center;
