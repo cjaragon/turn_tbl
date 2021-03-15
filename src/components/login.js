@@ -7,9 +7,11 @@ const Login = (props) => {
     const [username, setUsername] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    const [newUser, setNewUser] = useState(false)
 
     const login = async (e) => {
         e.preventDefault()
+        setNewUser(false)
         try {
             const user = await axios.post('/auth/login', { email, password })
             props.setUser(user.data)
@@ -22,6 +24,7 @@ const Login = (props) => {
 
     const register = async (e) => {
         e.preventDefault();
+        setNewUser(false)
         try {
             const user = await axios.post('/auth/register', { email, username, password })
             props.setUser(user.data);
@@ -37,8 +40,12 @@ const Login = (props) => {
         <div className='view1'>
             <section className='login'>
                 <h3>Welcome to Turn-TBL!</h3>
-                <h5>Log in or register to get started on making your personal list of albums that you are interested in.</h5>
+                <h5>Log in or create an account to get started making your personal list of albums that you are interested in.</h5>
                 <form>
+                    <input className={ !newUser ? 'hide' : 'input'}
+                        placeholder='Username'
+                        onChange={e => setUsername(e.target.value)}
+                        value={username} />
                     <input className='input'
                         placeholder='email'
                         onChange={e => setEmail(e.target.value)}
@@ -50,12 +57,15 @@ const Login = (props) => {
                         value={password} />
                     <button class='login-button'
                         onClick={ !email || !password ? null : login}> Log In </button>
-                    <input className='input'
-                        placeholder='Username'
-                        onChange={e => setUsername(e.target.value)}
-                        value={username} />
-                    <button class='login-button'
-                        onClick={register}> Register </button>
+                    {
+                        !newUser
+                        ?
+                        <button className='login-button'
+                            onClick={() => setNewUser(true)}>New User</button>
+                        :
+                        <button class='login-button'
+                            onClick={ register }> Register </button>
+                    }
                 </form>
             </section>
         </div>

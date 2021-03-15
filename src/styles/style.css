@@ -92,6 +92,9 @@ body button {
   text-align: center;
   color: #e0cba8;
 }
+.view1 .login form .hide {
+  display: none;
+}
 .view1 .login form button {
   border-radius: 10px 10px;
   padding: 5px;
