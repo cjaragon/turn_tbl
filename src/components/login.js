@@ -35,6 +35,11 @@ const Login = (props) => {
         }
     }
 
+    const setUser = (e) => {
+        e.preventDefault()
+        setNewUser(true)
+    }
+
 
     return (
         <div className='view1'>
@@ -61,7 +66,7 @@ const Login = (props) => {
                         !newUser
                         ?
                         <button className='login-button'
-                            onClick={() => setNewUser(true)}>New User</button>
+                            onClick={setUser}>New User</button>
                         :
                         <button class='login-button'
                             onClick={ register }> Register </button>
